@@ -13,6 +13,11 @@
 
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
+// incluimos la librería SoftwareSerial para la comunicación Bluetooth.
+// si la línea marca un error, asegúrate de tener instalada la librería SoftwareSerial correctamente.
+#include <SoftwareSerial.h> 
+// incluimos la librería Dabble para usar sus funciones.
+// si la línea marca un error, asegúrate de tener instalada la librería Dabble correctamente.
 #include <Dabble.h>
 
 // Definición de pines para los motores
@@ -22,17 +27,17 @@
 #define IN3 4
 #define IN4 5
 
-// Pines para control de velocidad (PWM)
+// Pines para control de velocidad (se requieren pines PWM)
 // Los pines PWM en Arduino Uno suelen tener un símbolo "~" (3, 5, 6, 9, 10, 11)
 #define ENA 6 // Control de velocidad Motor Izquierdo
 #define ENB 9 // Control de velocidad Motor Derecho
 
 void setup() {
   // configura la velocidad de transmisión Bluetooth. 
-  //Dabble usa 9600 por defecto. asigna los pines 9 y 10 para la comunicación SoftwareSerial.
+  //Dabble usa 9600 por defecto. asigna los pines 7 y 8 para la comunicación SoftwareSerial.
   //Esto es necesario, pues si se usaran el 0 y 1, sería necesario desconectar el módulo Bluetooth cada vez que se quiera subir
   //un nuevo programa al Arduino.
-  Dabble.begin(9600, 9, 10); 
+  Dabble.begin(9600, 7, 8); 
   // inicia la comunicación Bluetooth
 
   // Configurar pines de dirección como salida
