@@ -27,7 +27,7 @@
 // esta es la función de configuración inicial se ejecuta una vez al iniciar el programa o cuando el Arduino se reinicia
 void setup() {
   // configura la velocidad de transmisión Bluetooth. 
-  //Dabble usa 9600 por defecto. asigna los pines 9 y 10 para la comunicación SoftwareSerial.
+  //Dabble usa 9600 por defecto. asigna los pines 7 y 8 para la comunicación SoftwareSerial.
   //Esto es necesario, pues si se usaran el 0 y 1, sería necesario desconectar el módulo Bluetooth cada vez que se quiera subir
   //un nuevo programa al Arduino.
   Dabble.begin(9600, 7, 8); 
