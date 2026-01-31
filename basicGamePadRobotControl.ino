@@ -3,9 +3,14 @@
 // configuración inicial para controlar un robot con Dabble y un módulo Bluetooth
 // es necesario tener la librería Dabble instalada en el IDE de Arduino
 // para hacer esto, ve a Sketch -> Incluir Librería -> Administrar Bibliotecas
-// y busca "Dabble" para instalarla
+// y busca "Dabble" para instalarla. Haz lo mismo con "SoftwareSerial" si no la tienes ya instalada.
 #define CUSTOM_SETTINGS
 #define INCLUDE_GAMEPAD_MODULE
+// incluimos la librería SoftwareSerial para la comunicación Bluetooth.
+// si la línea marca un error, asegúrate de tener instalada la librería SoftwareSerial correctamente.
+#include <SoftwareSerial.h> 
+// incluimos la librería Dabble para usar sus funciones.
+// si la línea marca un error, asegúrate de tener instalada la librería Dabble correctamente.
 #include <Dabble.h>
 
 // aquí se definen los pines de los motores
@@ -21,7 +26,11 @@
 
 // esta es la función de configuración inicial se ejecuta una vez al iniciar el programa o cuando el Arduino se reinicia
 void setup() {
-  Dabble.begin(9600); // configura la velocidad de transmisión Bluetooth. Dabble usa 9600 por defecto.
+  // configura la velocidad de transmisión Bluetooth. 
+  //Dabble usa 9600 por defecto. asigna los pines 9 y 10 para la comunicación SoftwareSerial.
+  //Esto es necesario, pues si se usaran el 0 y 1, sería necesario desconectar el módulo Bluetooth cada vez que se quiera subir
+  //un nuevo programa al Arduino.
+  Dabble.begin(9600, 9, 10); 
   pinMode(IN1, OUTPUT); // configura los pines de los motores como salidas
   pinMode(IN2, OUTPUT); // configura los pines de los motores como salidas
   pinMode(IN3, OUTPUT); // configura los pines de los motores como salidas
