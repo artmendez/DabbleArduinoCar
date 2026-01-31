@@ -28,7 +28,11 @@
 #define ENB 9 // Control de velocidad Motor Derecho
 
 void setup() {
-  Dabble.begin(9600); 
+  // configura la velocidad de transmisión Bluetooth. 
+  //Dabble usa 9600 por defecto. asigna los pines 9 y 10 para la comunicación SoftwareSerial.
+  //Esto es necesario, pues si se usaran el 0 y 1, sería necesario desconectar el módulo Bluetooth cada vez que se quiera subir
+  //un nuevo programa al Arduino.
+  Dabble.begin(9600, 9, 10); 
   // inicia la comunicación Bluetooth
 
   // Configurar pines de dirección como salida

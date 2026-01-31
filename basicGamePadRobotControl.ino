@@ -30,7 +30,7 @@ void setup() {
   //Dabble usa 9600 por defecto. asigna los pines 9 y 10 para la comunicación SoftwareSerial.
   //Esto es necesario, pues si se usaran el 0 y 1, sería necesario desconectar el módulo Bluetooth cada vez que se quiera subir
   //un nuevo programa al Arduino.
-  Dabble.begin(9600, 9, 10); 
+  Dabble.begin(9600, 7, 8); 
   pinMode(IN1, OUTPUT); // configura los pines de los motores como salidas
   pinMode(IN2, OUTPUT); // configura los pines de los motores como salidas
   pinMode(IN3, OUTPUT); // configura los pines de los motores como salidas
